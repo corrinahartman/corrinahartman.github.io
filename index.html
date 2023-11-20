@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Sweverything</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Link to your CSS file for styling -->
+    <style>
+        /* Custom styles */
+        .album-card {
+            cursor: pointer;
+        }
+
+        .album-card img {
+            max-height: 200px;
+            /* Adjust the image height as needed */
+            width: 200px;
+        }
+
+        .album-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .album-card:nth-child(even) {
+            margin-right: 15px;
+            /* Margin for even-numbered cards to create space */
+            margin-left: 0;
+        }
+
+        .album-card:nth-child(odd) {
+            margin-left: 15px;
+            /* Margin for odd-numbered cards to create space */
+            margin-right: 0;
+        }
+
+        .hero-head {
+            background-color: purple;
+        }
+
+        .hero-body {
+            background-color: purple;
+        }
+
+        .button {
+            color: white;
+        }
+    </style>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <section class="hero is-primary is-fullheight">
+
+        <!-- Hero head: navigation -->
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#">
+                            <img src="https://www.gerbenlaw.com/wp-content/uploads/2020/04/Tyalor-Swift.jpg"
+                                alt="Taylor Swift Logo">
+                        </a>
+                        <span class="navbar-burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="http://127.0.0.1:3000/final/index.html#">Home</a>
+                            <a class="navbar-item" href="#timeline" target="_blank">Albums</a>
+                            <a class="navbar-item" href="https://store.taylorswift.com" target="_blank">Merch</a>
+                            <a class="navbar-item" href="https://tstheerastour.taylorswift.com" target="_blank">Tour</a>
+                            <a class="navbar-item" href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
+                                target="_blank">Listen</a>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Hero body: content -->
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-size-1">Taylor Swift</h1>
+                <h2 class="subtitle">The biggest artist the world has ever seen</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home">
+
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <section class="section">
+            <div class="container">
+                <h1 class="title is-1">Albums</h1>
+                <div class="album-wrapper">
+                    <!-- Album cards -->
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png"
+                                        alt="Taylor Swift">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Taylor Swift</h3>
+                                    <p>Debut is Taylor Swift's first full length album and is what started her career.
+                                        The album is fun, young, and country. Very country. Soulful songs like Teardrops
+                                        on my guitar show the emotional depth she possesed at a young age, and instant
+                                        hits like Our Song had everyone in love with Taylor from the beginning. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar card structure for other albums -->
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://media.newyorker.com/photos/60747954c920e996bd1e486d/master/pass/Battan-FearlessTaylorsVersion.jpg"
+                                        alt="Fearless (Taylor's Version)">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Fearless (Taylor's Version)</h3>
+                                    <p>Fearless is Taylor's second studio album, but was her first re-record. No album
+                                        has upgrade as much as fearless has by her rerecords. The album solidified
+                                        Taylor as a star with classics like Love Story and You Belong With Me. Still two
+                                        of her most popular songs. With a pop/country mix, Fearless is phenomenal. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://media.pitchfork.com/photos/647e290ae7a8aa8db8026970/master/pass/Taylor-Swift.jpg"
+                                        alt="Speak Now (Taylor's Version)">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Speak Now (Taylor's Version)</h3>
+                                    <p>Speak Now is where Taylor shows her song writting talent. The album is solely
+                                        written by her, and boasts songs that are deeply personal and emotional. Taylor
+                                        had gone through a lot of public ridicule, and this was her expression of what
+                                        had occurred. Songs like Dear John, Innocent and Last Kiss are some of her
+                                        saddest and most gut wrenching songs to this day.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://www.nfm.com/on/demandware.static/-/Sites-nfm-master-catalog/default/dw9c4c4445/images/064/19/64190473-1.jpg"
+                                        alt="Red (Taylor's Version)">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Red (Taylor's Version)</h3>
+                                    <p>Red (Taylor's Version) is the it girl. No rerecord has had the attention that Red
+                                        got. Taylor's journey into pop began with Red, which had huge commercial hits,
+                                        and with the rerecord, All Too Well 10 minute version got it's time to shine.
+                                        Winning best music video, ATW 10 minute version is wildly regarded as Taylor's
+                                        best song.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://m.media-amazon.com/images/I/81JNBy4njYL._UF1000,1000_QL80_.jpg"
+                                        alt="1989 (Taylor's Version)">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">1989 (Taylor's Version)</h3>
+                                    <p>The pop icon album. You cannot escape her and why would you want to, 1989 is full
+                                        of HITS. Her biggest songs to date such as Blank Space, Shake it Off and Style
+                                        can all be found on 1989 (her birth year)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Taylor_Swift_-_Reputation.png"
+                                        alt="Reputation">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Reputation</h3>
+                                    <p>Taylor went dark for a full two years, she was not seen in public, no new music,
+                                        nothing. And then 2016 hit and she dropped Look What You Made Me Do, her
+                                        decisive and shocking return to the scene. Reputation tells a story about
+                                        falling in love in private, and sharing how public opinion affects someone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://m.media-amazon.com/images/I/61lmEXicYUL._UF1000,1000_QL80_.jpg"
+                                        alt="Lover">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Lover</h3>
+                                    <p>The album about being in love. But it is more than that. It's the fun freedom
+                                        that love can bring, but also the miscommunication and struggles in a
+                                        relationship. Not all romantic. This album has range, and while it is not the
+                                        most celebrated of her albums, songs like Cruel Summer are getting their time to
+                                        shine.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png"
+                                        alt="folklore">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">folklore</h3>
+                                    <p>Covid might have sucked... But it gave us folklore. Taylor takes a pause from
+                                        telling her own stories and instead shows her song writting skills by writting
+                                        about fictional situations. This album is lyrically Taylor's best work, and
+                                        while not as upbeat, it is arguably her best work.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://m.media-amazon.com/images/I/71K25xAK+JL._UF1000,1000_QL80_.jpg"
+                                        alt="evermore">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">evermore</h3>
+                                    <p>The sister album to folklore, it was not as popular at the time, but had become a
+                                        fan favorite. Taylor shows off more of her song writting and talent as a singer
+                                        in evermore, specifically in the title track, where her vocals are beutifully
+                                        highlited. The slower songs masterfully show that Taylor has insane range, from
+                                        pop to indie to country, Taylor does it all.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third album-card" onclick="navigateToAlbum('album1')">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by4">
+                                    <img src="https://palyvoice.com/wp-content/uploads/2022/10/Taylor-Swift-Midnights-e1666897618365.webp"
+                                        alt="Midnights">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h3 class="title is-4">Midnights</h3>
+                                    <p>The album that broke every streaming record imaginable. Midnights is about
+                                        different midnights in Taylor's life, and it spans a variety of styles, but
+                                        really finds itself in pop anthems like Karma and Anti-Hero. Taylor does pop in
+                                        the way Shakespere does plays, its art.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Add interactive timeline content here -->
+    </section>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma@0.9.3/js/bulma.min.js"></script>
+    <script>
+        // Function to navigate to album page
+        function navigateToAlbum(albumId) {
+            window.location.href = `album1.html`;
+        }
+    </script>
+
+
+    <!-- Add more sections for other features, such as fan art gallery, trivia, etc. -->
+
+    <!-- Footer -->
+    <footer>
+        <section class="containter">
+            <p>&copy; 2023 All rights reserved to Taylor Swift.</p>
+        </section>
+    </footer>
+
+    <script src="src/app.js"></script>
+
+    <div id="spotify-player"></div>
+
+</body>
+
+</html>

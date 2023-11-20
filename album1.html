@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Taylor Swift</title>
+</head>
+
+<body>
+    <h1>Taylor Swift</h1>
+    <h2>Learn Everything You Would Want to Know About Every Song</h2>
+  <table id="csvTable" border="1">
+    <!-- Table will be populated here -->
+  </table>
+
+  <script>
+    const csvFilePath = 'taylor_swift_spotify_data.csv'; // Replace with your file path or URL
+
+    fetch(csvFilePath)
+      .then(response => response.text())
+      .then(csv => {
+        const rows = csv.split('\n');
+
+        const table = document.getElementById('csvTable');
+        table.innerHTML = '';
+
+        rows.forEach(row => {
+          const cells = row.split(',');
+          const newRow = document.createElement('tr');
+          cells.forEach(cell => {
+            const newCell = document.createElement('td');
+            newCell.textContent = cell;
+            newRow.appendChild(newCell);
+          });
+          table.appendChild(newRow);
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+    // Display the file name if needed
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    fileNameDisplay.textContent = `Selected File: ${csvFilePath}`;
+  </script>
+    <ul id="songList"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
